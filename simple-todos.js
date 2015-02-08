@@ -38,8 +38,10 @@ if (Meteor.isClient) {
 
        else {
         Tasks.insert({
-          text: text,
-          createdAt: new Date() // Current time
+          text: text, // Title of task
+          createdAt: new Date(), // Current time
+          owner: Meteor.userId(), // userID
+          username: Meteor.user().username, // username
         
         });
 
@@ -68,5 +70,11 @@ if (Meteor.isClient) {
     }
   });
 
+  Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
+
 
 }
+
+

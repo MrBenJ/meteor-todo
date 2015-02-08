@@ -1,3 +1,10 @@
+@mixin fontStandard {
+	font-family: "HelveticaNeue", "sans-serif";
+	font-size: .8em;
+	letter-spacing: 1px;
+
+}
+
 body {
 	background-color: #315481;
 	background-image: linear-gradient(to bottom, #315481, #918e82 100%);
@@ -26,11 +33,10 @@ header {
     padding: 20px 15px 15px 15px;
     position: relative;
 
-    label {
-    	font-family: "HelveticaNeue", "sans-serif";
-    	font-size: .8em;
-    	letter-spacing: 1px;
+    label, #login-buttons {
+    	@include fontStandard
     }
+
 }
 
 #login-buttons {

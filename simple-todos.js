@@ -94,11 +94,19 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
+    if(Meteor.user().username === undefined) {
+      var username = Meteor.user().profile.name;
+    }
+    else {
+      var username = Meteor.user().username;
+    }
+
     Tasks.insert({
       text: text,
       createdAt: new Date(),
       owner: Meteor.userId(),
-      username: Meteor.user().username,
+      username: username,
+
     });
   },
 
